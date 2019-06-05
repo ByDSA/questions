@@ -1,0 +1,11 @@
+/lib*.gitignore
+/bin/
+/.settings
+/.project
+/.classpath
+/screens
+*.sh
+/out
+*.iml
+/.idea
+/tests
