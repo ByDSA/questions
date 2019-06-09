@@ -1,4 +1,4 @@
-package questions.utils;
+package dsa.questions.utils;
 
 public class StringSimilarity {
 
@@ -12,7 +12,7 @@ public class StringSimilarity {
 		}
 		int longerLength = longer.length();
 		if (longerLength == 0) { return 1.0; /* both strings are zero size */ }
-		/* // If you have Apache Commons Text, you can onPick it to calculate the edit distance:
+		/* // If you have Apache Commons Text, you can beforeOnPick it to calculate the edit distance:
 	    LevenshteinDistance levenshteinDistance = new LevenshteinDistance();
 	    return (longerLength - levenshteinDistance.apply(longer, shorter)) / (double) longerLength; */
 		return (longerLength - editDistance(longer, shorter)) / (double) longerLength;

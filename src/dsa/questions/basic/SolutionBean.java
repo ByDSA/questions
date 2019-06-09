@@ -1,6 +1,6 @@
-package questions.basic;
+package dsa.questions.basic;
 
-import questions.core.Solution;
+import dsa.questions.core.Solution;
 
 public class SolutionBean<T> implements Solution<T> {
 	private T value;

@@ -1,6 +1,4 @@
-package questions.basic;
-
-import questions.random.Target;
+package dsa.questions.basic;
 
 public class QuestionChoiceString<ID> extends QuestionChoice<ID, String> {
 	protected String question;

@@ -1,4 +1,4 @@
-package questions.random;
+package dsa.questions.random;
 
 import java.security.SecureRandom;
 import java.util.*;
@@ -25,7 +25,7 @@ public class PackTarget<T extends Target> extends ArrayList<T> implements Target
 		if (size() == 0)
 			throw new EmptyException();
 
-		onPick();
+		beforeOnPick();
 
 		long acc = 0;
 		Target dartTarget = null;
@@ -38,7 +38,11 @@ public class PackTarget<T extends Target> extends ArrayList<T> implements Target
 			}
 		}
 
-		return dartTarget.pick(dart - acc);
+		Target ret = dartTarget.pick(dart - acc);
+
+		afterOnPick();
+
+		return ret;
 	}
 
 	@Override
@@ -52,7 +56,11 @@ public class PackTarget<T extends Target> extends ArrayList<T> implements Target
 	}
 
 	@Override
-	public void onPick() {
+	public void beforeOnPick() {
+
+	}
+
+	public void afterOnPick() {
 		ago = 0; // El siguiente no puede ser el mismo
 	}
 
@@ -97,7 +105,7 @@ public class PackTarget<T extends Target> extends ArrayList<T> implements Target
 
 		if (size() == 1) { // Para evitar el rand y sea más eficiente, sobre todo para el SecureRandom
 			T t = get(0);
-			onPick();
+			beforeOnPick();
 			t.pick();
 			return t;
 		}

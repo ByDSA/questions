@@ -1,4 +1,4 @@
-package questions.random;
+package dsa.questions.random;
 
 public class SimpleTarget implements Target {
     private long ago;
@@ -8,7 +8,7 @@ public class SimpleTarget implements Target {
     }
 
     @Override
-    public void onPick() {
+    public void beforeOnPick() {
         ago = 0; // El siguiente no puede ser el mismo
     }
 
@@ -19,7 +19,7 @@ public class SimpleTarget implements Target {
 
     @Override
     public Target pick() {
-        onPick();
+        beforeOnPick();
         return this;
     }
 

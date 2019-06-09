@@ -1,4 +1,4 @@
-package questions.random;
+package dsa.questions.random;
 
 import java.util.ArrayList;
 import java.util.List;

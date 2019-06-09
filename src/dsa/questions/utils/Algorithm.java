@@ -1,6 +1,6 @@
-package questions.utils;
+package dsa.questions.utils;
 
-import questions.random.FailWinTargetBean;
+import dsa.questions.random.FailWinTargetBean;
 
 import java.util.List;
 

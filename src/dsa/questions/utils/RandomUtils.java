@@ -1,4 +1,4 @@
-package questions.utils;
+package dsa.questions.utils;
 
 import java.util.Random;
 

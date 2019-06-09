@@ -1,7 +1,4 @@
-package questions.random;
-
-import questions.random.SimpleTarget;
-import questions.random.Target;
+package dsa.questions.random;
 
 public class SimpleTargetBean<T> extends SimpleTarget {
 	protected T value;

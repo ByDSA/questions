@@ -1,4 +1,4 @@
-package questions.basic;
+package dsa.questions.basic;
 
 public class SolutionRegex extends SolutionBean<String> {
 	public SolutionRegex(String s) {

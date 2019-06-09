@@ -1,4 +1,4 @@
-package questions.core;
+package dsa.questions.core;
 
 public class Question<S extends Solution<ANSWER>, ANSWER> implements java.io.Serializable {
 	private S solution;

@@ -1,6 +1,6 @@
-package questions.basic;
+package dsa.questions.basic;
 
-import questions.core.Question;
+import dsa.questions.core.Question;
 
 import java.util.*;
 

@@ -1,11 +1,11 @@
-package questions.random;
+package dsa.questions.random;
 
 public interface Target {
 	Target pick(long dart);
 	Target pick();
 	long surface();
 	void next();
-	void onPick();
+	void beforeOnPick();
 	long getAgo();
 	void setAgo(long a);
 }

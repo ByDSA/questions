@@ -1,7 +1,7 @@
-package questions.basic;
+package dsa.questions.basic;
 
-import questions.core.Question;
-import questions.random.Target;
+import dsa.questions.core.Question;
+import dsa.questions.random.Target;
 
 public class QuestionString<S extends SolutionRegex, T extends Target> extends Question<S, String> {
 	private String question;
