@@ -1,6 +1,7 @@
 package dsa.questions.basic;
 
 public class SolutionRegex extends SolutionBean<String> {
+    @SuppressWarnings("WeakerAccess")
 	public SolutionRegex(String s) {
 		super(s);
 	}

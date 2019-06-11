@@ -4,6 +4,7 @@ import dsa.questions.core.Question;
 
 import java.util.List;
 
+@SuppressWarnings("unused")
 public class PackTargetQuestions<Q extends Question> extends PackTarget<SimpleTargetBean<Q>> {
 
     public PackTargetQuestions() {

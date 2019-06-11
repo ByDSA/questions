@@ -13,6 +13,10 @@ public class SimpleTarget implements Target {
     }
 
     @Override
+    public void afterOnPick() {
+    }
+
+    @Override
     public Target pick(long dart) {
         return pick();
     }

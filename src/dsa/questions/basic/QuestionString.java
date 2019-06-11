@@ -1,39 +1,47 @@
 package dsa.questions.basic;
 
 import dsa.questions.core.Question;
-import dsa.questions.random.Target;
 
-public class QuestionString<S extends SolutionRegex, T extends Target> extends Question<S, String> {
-	private String question;
+import java.util.Objects;
 
-	public QuestionString(String q, S s) {
+@SuppressWarnings("unused")
+public class QuestionString extends Question<SolutionRegex, String> {
+	private String questionString;
+
+	@SuppressWarnings("WeakerAccess")
+	public QuestionString(String q, SolutionRegex s) {
 		super(s);
 
-		question = q;
+		Objects.requireNonNull(q);
+		questionString = q;
 	}
 
+	@SuppressWarnings("unused")
 	public QuestionString(String q, String s) {
-		this(q, (S) new SolutionRegex(s));
-	}
-
-	@Override
-	public String toString() {
-		return question;
+		this(q, new SolutionRegex(s));
 	}
 
 	public boolean match(String str) {
 		return super.match(str);
 	}
 
+	@SuppressWarnings("unused")
 	public String getQuestionString() {
-		return question;
+		return questionString;
 	}
 
+	@SuppressWarnings("unused")
 	public void setQuestionString(String s) {
-		question = s;
+		questionString = s;
 	}
-	
+
+	@SuppressWarnings("unused")
 	public void setSolution(String s) {
-		super.setSolution( (S)new SolutionRegex(s) );
+		super.setSolution( new SolutionRegex(s) );
+	}
+
+	@Override
+	public String toString() {
+		return questionString;
 	}
 }

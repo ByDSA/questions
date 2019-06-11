@@ -1,28 +1,35 @@
 package dsa.questions.basic;
 
-public class QuestionChoiceString<ID> extends QuestionChoice<ID, String> {
-	protected String question;
+import java.util.Objects;
 
+public class QuestionChoiceString<ID> extends QuestionChoice<ID, String> {
+	private String questionString;
+
+    @SuppressWarnings("unused")
 	public QuestionChoiceString() {
 		super();
 	}
 
-	public QuestionChoiceString(String q, QuestionChoice.Choice<ID, String>[] cs, ID sol) {
-		super(cs, sol);
+    @SuppressWarnings("unused")
+    public QuestionChoiceString(String q, Choice<ID, String>[] cs, ID sol) {
+        super(cs, sol);
 
-		question = q;
-	}
+        setQuestionString(questionString);
+    }
 
-	@Override
-	public String toString() {
-		return question;
-	}
-
+    @SuppressWarnings("unused")
 	public String getQuestionString() {
-		return question;
+		return questionString;
 	}
 
+    @SuppressWarnings("unused")
 	public void setQuestionString(String s) {
-		question = s;
+        Objects.requireNonNull(s);
+		questionString = s;
 	}
+
+    @Override
+    public String toString() {
+        return questionString;
+    }
 }

@@ -1,12 +1,14 @@
 package dsa.questions.core;
 
+import java.util.Objects;
+
 public class Question<S extends Solution<ANSWER>, ANSWER> implements java.io.Serializable {
 	private S solution;
 
 	public Question() {	}
 
 	public Question(S s) {
-		solution = s;
+		setSolution(s);
 	}
 	
 	public boolean match(ANSWER a) {
@@ -18,6 +20,7 @@ public class Question<S extends Solution<ANSWER>, ANSWER> implements java.io.Ser
 	}
 
 	public void setSolution(S s) {
+		Objects.requireNonNull(s);
 		solution = s;
 	}
 }

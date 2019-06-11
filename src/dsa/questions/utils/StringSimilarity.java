@@ -47,4 +47,21 @@ public class StringSimilarity {
 		}
 		return costs[s2.length()];
 	}
+
+	public static String splitLine(String str, int charsPerLine) {
+		StringBuilder sb = new StringBuilder();
+		int i;
+		for (i = 0; i + charsPerLine < str.length(); ) {
+			int l;
+			for (l = charsPerLine; l > 0 && str.charAt(i+l) != ' '; l--);
+			sb.append(str.substring(i, i + l));
+			sb.append("\n");
+
+			i += l + 1; // el 1 es para quitar el espacio
+		}
+
+		sb.append( str.substring(i , str.length() ));
+
+		return sb.toString();
+	}
 }

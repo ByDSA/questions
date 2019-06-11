@@ -6,6 +6,7 @@ public interface Target {
 	long surface();
 	void next();
 	void beforeOnPick();
+	void afterOnPick();
 	long getAgo();
 	void setAgo(long a);
 }

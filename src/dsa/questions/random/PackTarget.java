@@ -4,7 +4,10 @@ import java.security.SecureRandom;
 import java.util.*;
 
 public class PackTarget<T extends Target> extends ArrayList<T> implements Target {
-	private static Random rand = new Random();
+	private static Random rand;
+	static {
+		setNormalRandom();
+	}
 
 	private long ago;
 
@@ -38,6 +41,7 @@ public class PackTarget<T extends Target> extends ArrayList<T> implements Target
 			}
 		}
 
+		Objects.requireNonNull(dartTarget);
 		Target ret = dartTarget.pick(dart - acc);
 
 		afterOnPick();
@@ -60,6 +64,7 @@ public class PackTarget<T extends Target> extends ArrayList<T> implements Target
 
 	}
 
+	@Override
 	public void afterOnPick() {
 		ago = 0; // El siguiente no puede ser el mismo
 	}
@@ -116,12 +121,14 @@ public class PackTarget<T extends Target> extends ArrayList<T> implements Target
 	}
 
 	public static class NoSurfaceException extends RuntimeException {
+		@SuppressWarnings("WeakerAccess")
 		public NoSurfaceException() {
 			super("El tamaño de la suma de los target es 0");
 		}
 	}
 
 	public static class EmptyException extends RuntimeException {
+		@SuppressWarnings("WeakerAccess")
 		public EmptyException() {
 			super("PackTarget vacío");
 		}

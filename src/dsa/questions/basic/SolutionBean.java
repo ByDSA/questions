@@ -1,14 +1,19 @@
 package dsa.questions.basic;
 
 import dsa.questions.core.Solution;
+import dsa.questions.utils.Bean;
 
-public class SolutionBean<T> implements Solution<T> {
+import java.util.Objects;
+
+public class SolutionBean<T> implements Solution<T>, Bean<T> {
 	private T value;
 
-	public SolutionBean() { }
+	@SuppressWarnings("unused")
+	public SolutionBean() { } // Compatibilidad javabean
 
+	@SuppressWarnings("WeakerAccess")
 	public SolutionBean(T s) {
-		value = s;
+		setValue(s);
 	}
 
 	@Override
@@ -16,11 +21,14 @@ public class SolutionBean<T> implements Solution<T> {
 		return v.equals(value);
 	}
 
+	@Override
 	public T getValue() {
 		return value;
 	}
 
+	@Override
 	public void setValue(T v) {
+		Objects.requireNonNull(v);
 		value = v;
 	}
 }
