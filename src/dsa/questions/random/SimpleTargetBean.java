@@ -15,12 +15,12 @@ public class SimpleTargetBean<T> extends SimpleTarget implements Bean<T> {
 	}
 
 	@Override
-	public T getValue() {
+	public final T getValue() {
 		return value;
 	}
 
     @Override
-	public void setValue(T v) {
+	public final void setValue(T v) {
         Objects.requireNonNull(v);
 	    value = v;
     }

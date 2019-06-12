@@ -24,7 +24,7 @@ public class QuestionChoice<ID, ANSWER> extends Question<SolutionBean<ID>, ID> {
     }
 
     @SuppressWarnings("WeakerAccess")
-    public void addChoice(Choice<ID, ANSWER> c) {
+    public final void addChoice(Choice<ID, ANSWER> c) {
         Objects.requireNonNull(c);
 
         choices.put(c.getId(), c);
@@ -32,24 +32,24 @@ public class QuestionChoice<ID, ANSWER> extends Question<SolutionBean<ID>, ID> {
     }
 
     @SuppressWarnings("unused")
-    public void addChoice(ID id, ANSWER a) {
+    public final void addChoice(ID id, ANSWER a) {
         Choice<ID, ANSWER> c = new Choice<>(id, a);
         addChoice(c);
     }
 
     @SuppressWarnings("unused")
-    public Choice<ID, ANSWER> getChoice(ID id) {
+    public final Choice<ID, ANSWER> getChoice(ID id) {
         Objects.requireNonNull(id);
         return choices.get(id);
     }
 
     @SuppressWarnings("WeakerAccess")
-    public List<Choice<ID, ANSWER>> getChoices() {
+    public final List<Choice<ID, ANSWER>> getChoices() {
         return choicesList;
     }
 
     @SuppressWarnings("unused")
-    public List<Choice<ID, ANSWER>> getShuffledChoices() {
+    public final List<Choice<ID, ANSWER>> getShuffledChoices() {
         List<Choice<ID, ANSWER>> l = getChoices();
         Collections.shuffle(l);
 
@@ -57,7 +57,7 @@ public class QuestionChoice<ID, ANSWER> extends Question<SolutionBean<ID>, ID> {
     }
 
     @SuppressWarnings("WeakerAccess")
-    public void setSolution(ID s) {
+    public final void setSolution(ID s) {
         Objects.requireNonNull(s);
         Objects.requireNonNull(choices.get(s), "Opción '" + s + "' no añadida");
 

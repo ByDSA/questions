@@ -18,12 +18,12 @@ public class QuestionChoiceString<ID> extends QuestionChoice<ID, String> {
     }
 
     @SuppressWarnings("unused")
-	public String getQuestionString() {
+    public final String getQuestionString() {
 		return questionString;
 	}
 
     @SuppressWarnings("unused")
-	public void setQuestionString(String s) {
+    public final void setQuestionString(String s) {
         Objects.requireNonNull(s);
 		questionString = s;
 	}

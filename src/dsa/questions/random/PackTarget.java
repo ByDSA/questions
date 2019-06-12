@@ -25,11 +25,9 @@ public class PackTarget<PICK_TYPE extends Target> extends ArrayList<Target> impl
     }
 
 	@Override
-    public PICK_TYPE pick(long dart) {
+	public final PICK_TYPE pick(long dart) {
 		if (size() == 0)
 			throw new EmptyException();
-
-		beforeOnPick();
 
 		long acc = 0;
         Target dartTarget = null;
@@ -45,13 +43,11 @@ public class PackTarget<PICK_TYPE extends Target> extends ArrayList<Target> impl
 		Objects.requireNonNull(dartTarget);
         PICK_TYPE ret = (PICK_TYPE) dartTarget.pick(dart - acc);
 
-		afterOnPick();
-
 		return ret;
 	}
 
 	@Override
-    public long getSurface() {
+	public final long getSurface() {
 		long size = 0;
         for (Target t : this) {
             size += Math.max(t.getSurface(), 0);
@@ -87,10 +83,11 @@ public class PackTarget<PICK_TYPE extends Target> extends ArrayList<Target> impl
 	}
 
     @Override
-    public PICK_TYPE pick() {
+	public final PICK_TYPE pick() {
         if (size() == 0)
             throw new EmptyException();
 
+		beforeOnPick();
         long surface = surfaceWithNext();
 
         if (surface <= 0)
@@ -98,13 +95,14 @@ public class PackTarget<PICK_TYPE extends Target> extends ArrayList<Target> impl
 
         if (size() == 1) { // Para evitar el rand y sea más eficiente, especialmente para el SecureRandom
             Target t = get(0);
-            beforeOnPick();
             return (PICK_TYPE) t.pick();
         }
 
         long dart = rand(surface);
 
-        return pick(dart);
+		PICK_TYPE t = pick(dart);
+		afterOnPick();
+		return t;
     }
 
 	public static class NoSurfaceException extends RuntimeException {

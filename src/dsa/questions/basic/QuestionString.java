@@ -5,7 +5,7 @@ import dsa.questions.core.Question;
 import java.util.Objects;
 
 @SuppressWarnings("unused")
-public class QuestionString extends Question<SolutionRegex, String> {
+public final class QuestionString extends Question<SolutionRegex, String> {
 	private String questionString;
 
 	@SuppressWarnings("WeakerAccess")
@@ -36,7 +36,7 @@ public class QuestionString extends Question<SolutionRegex, String> {
 	}
 
 	@SuppressWarnings("unused")
-	public void setSolution(String s) {
+	public final void setSolution(String s) {
 		super.setSolution( new SolutionRegex(s) );
 	}
 

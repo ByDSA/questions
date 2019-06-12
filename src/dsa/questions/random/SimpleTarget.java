@@ -27,11 +27,11 @@ public class SimpleTarget implements Target {
     }
 
     @Override
-    public long getSurface() {
+    public final long getSurface() {
         return surface;
     }
 
-    public void setSurface(long s) {
+    public final void setSurface(long s) {
         surface = s;
     }
 

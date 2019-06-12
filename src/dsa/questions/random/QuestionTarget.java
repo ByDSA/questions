@@ -26,19 +26,19 @@ public class QuestionTarget<Q extends Question> extends SimpleTargetBean<Q> {
 	}
 
 	@SuppressWarnings("unused")
-	public void addTimes(boolean ok) {
+	public final void addTimes(boolean ok) {
 		times.add(ok);
 	}
 
-	public void clearTimes() {
+	public final void clearTimes() {
 		times.clear();
 	}
 
-	public void setTimes(List<Boolean> l) {
+	public final void setTimes(List<Boolean> l) {
 		times = l;
 	}
 
-	public List<Boolean> getTimes() {
+	public final List<Boolean> getTimes() {
 		return times;
 	}
 
@@ -47,12 +47,12 @@ public class QuestionTarget<Q extends Question> extends SimpleTargetBean<Q> {
 		ago = 0; // El siguiente no puede ser el mismo
 	}
 
-	public long getAgo() {
+	public final long getAgo() {
 		return ago;
 	}
 
 	@SuppressWarnings("unused")
-	public void setAgo(long a) {
+	public final void setAgo(long a) {
 		ago = a;
 	}
 

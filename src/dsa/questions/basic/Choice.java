@@ -13,23 +13,23 @@ public class Choice<ID, ANSWER> {
     }
 
     @SuppressWarnings("WeakerAccess")
-    public ID getId() {
+    public final ID getId() {
         return id;
     }
 
     @SuppressWarnings("WeakerAccess")
-    public void setId(ID id) {
+    public final void setId(ID id) {
         Objects.requireNonNull(id);
         this.id = id;
     }
 
     @SuppressWarnings("unused")
-    public ANSWER getAnswer() {
+    public final ANSWER getAnswer() {
         return answer;
     }
 
     @SuppressWarnings("WeakerAccess")
-    public void setAnswer(ANSWER a) {
+    public final void setAnswer(ANSWER a) {
         Objects.requireNonNull(a);
         answer = a;
     }
