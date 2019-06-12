@@ -1,6 +1,8 @@
 package dsa.questions.random;
 
 public class SimpleTarget implements Target {
+    private long surface = 1;
+
     public SimpleTarget() {
     }
 
@@ -25,8 +27,12 @@ public class SimpleTarget implements Target {
     }
 
     @Override
-    public long surface() {
-        return 1;
+    public long getSurface() {
+        return surface;
+    }
+
+    public void setSurface(long s) {
+        surface = s;
     }
 
     @Override

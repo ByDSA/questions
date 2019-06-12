@@ -34,10 +34,10 @@ public class PackTarget<PICK_TYPE extends Target> extends ArrayList<Target> impl
 		long acc = 0;
         Target dartTarget = null;
         for (Target t : this) {
-			acc += Math.max(0, t.surface());
+            acc += Math.max(0, t.getSurface());
 			if (dart < acc) {
 				dartTarget = t;
-				acc -= t.surface();
+                acc -= t.getSurface();
 				break;
 			}
 		}
@@ -51,10 +51,10 @@ public class PackTarget<PICK_TYPE extends Target> extends ArrayList<Target> impl
 	}
 
 	@Override
-	public long surface() {
+    public long getSurface() {
 		long size = 0;
         for (Target t : this) {
-			size += Math.max(t.surface(), 0);
+            size += Math.max(t.getSurface(), 0);
 		}
 
 		return size;
@@ -76,7 +76,7 @@ public class PackTarget<PICK_TYPE extends Target> extends ArrayList<Target> impl
 		long size = 0;
         for (Target t : this) {
 			t.next();
-			size += Math.max(t.surface(), 0);
+            size += Math.max(t.getSurface(), 0);
 		}
 
 		return size;
