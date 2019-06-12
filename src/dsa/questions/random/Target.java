@@ -7,6 +7,4 @@ public interface Target {
 	void next();
 	void beforeOnPick();
 	void afterOnPick();
-	long getAgo();
-	void setAgo(long a);
 }

@@ -1,11 +1,11 @@
 package dsa.questions.utils;
 
-import dsa.questions.random.FailWinTargetBean;
+import dsa.questions.random.QuestionTarget;
 
 import java.util.List;
 
 public class Algorithm {
-	public static long size(FailWinTargetBean target, long elements) {
+	public static long size(QuestionTarget target, long elements) {
 		assert(elements > 0);
 
 		return (long)test(target.getAgo(),

@@ -15,11 +15,6 @@ public class SimpleTargetBean<T> extends SimpleTarget implements Bean<T> {
 	}
 
 	@Override
-	public Target pick(long dart) {
-		return this;
-	}
-
-	@Override
 	public T getValue() {
 		return value;
 	}

@@ -9,10 +9,7 @@ public class PackTarget<T extends Target> extends ArrayList<T> implements Target
 		setNormalRandom();
 	}
 
-	private long ago;
-
 	public PackTarget() {
-		ago = Long.MAX_VALUE;
 	}
 
 	public static void setSecureRandom() {
@@ -61,28 +58,14 @@ public class PackTarget<T extends Target> extends ArrayList<T> implements Target
 
 	@Override
 	public void beforeOnPick() {
-
 	}
 
 	@Override
 	public void afterOnPick() {
-		ago = 0; // El siguiente no puede ser el mismo
 	}
 
 	@Override
 	public void next() {
-		if (ago != Long.MAX_VALUE)
-			ago++;
-	}
-
-	@Override
-	public long getAgo() {
-		return ago;
-	}
-
-	@Override
-	public void setAgo(long a) {
-		ago = a;
 	}
 
 	private long surfaceWithNext() {
