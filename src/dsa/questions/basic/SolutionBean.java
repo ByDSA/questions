@@ -18,6 +18,8 @@ public class SolutionBean<T> implements Solution<T>, Bean<T> {
 
 	@Override
 	public boolean match(T v) {
+        if (v == null)
+            return false;
 		return v.equals(value);
 	}
 

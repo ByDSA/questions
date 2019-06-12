@@ -8,6 +8,8 @@ public final class SolutionRegex extends SolutionBean<String> {
 	
 	@Override
 	public boolean match(String str) {
+		if (str == null)
+			return false;
 		return str.matches(getValue());
 	}
 	
