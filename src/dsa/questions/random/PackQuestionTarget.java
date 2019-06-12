@@ -8,7 +8,7 @@ import java.util.Map;
 
 @SuppressWarnings("unused")
 public class PackQuestionTarget<Q extends Question> extends PackTarget<QuestionTarget<Q>> {
-    private Map<Q, SimpleTargetBean<Q>> questionTarget = new HashMap<>();
+    private Map<Q, QuestionTarget<Q>> questionTarget = new HashMap<>();
 
     public PackQuestionTarget() {
         super();
@@ -26,13 +26,15 @@ public class PackQuestionTarget<Q extends Question> extends PackTarget<QuestionT
         return super.add(t);
     }
 
+    @SuppressWarnings({"WeakerAccess", "unused"})
     public boolean add(Q q) {
-        QuestionTarget<Q> t = new QuestionTarget<Q>(q);
+        QuestionTarget<Q> t = new QuestionTarget<>(q);
         return add(t);
     }
 
     @Override
     public boolean remove(Object t) {
+        @SuppressWarnings("unchecked")
         QuestionTarget<Q> st = (QuestionTarget<Q>)t;
         questionTarget.remove(st.getValue());
         return super.remove(t);
@@ -42,7 +44,7 @@ public class PackQuestionTarget<Q extends Question> extends PackTarget<QuestionT
         return remove(questionTarget.get(q));
     }
 
-    public SimpleTargetBean<Q> getTarget(Q q) {
+    public QuestionTarget<Q> getTarget(Q q) {
         return questionTarget.get(q);
     }
 }

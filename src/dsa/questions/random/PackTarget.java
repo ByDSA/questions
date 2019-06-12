@@ -1,7 +1,9 @@
 package dsa.questions.random;
 
 import java.security.SecureRandom;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Objects;
+import java.util.Random;
 
 public class PackTarget<T extends Target> extends ArrayList<T> implements Target {
 	private static Random rand;
@@ -12,24 +14,26 @@ public class PackTarget<T extends Target> extends ArrayList<T> implements Target
 	public PackTarget() {
 	}
 
-	public static void setSecureRandom() {
-		rand = new SecureRandom();
-	}
+    @SuppressWarnings("unused")
+    public static void setSecureRandom() {
+        rand = new SecureRandom();
+    }
 
-	public static void setNormalRandom() {
-		rand = new Random();
-	}
+    @SuppressWarnings("WeakerAccess")
+    public static void setNormalRandom() {
+        rand = new Random();
+    }
 
 	@Override
-	public Target pick(long dart) {
+    public <TT extends Target> TT pick(long dart) {
 		if (size() == 0)
 			throw new EmptyException();
 
 		beforeOnPick();
 
 		long acc = 0;
-		Target dartTarget = null;
-		for(Target t : this) {
+        T dartTarget = null;
+        for (T t : this) {
 			acc += Math.max(0, t.surface());
 			if (dart < acc) {
 				dartTarget = t;
@@ -39,7 +43,7 @@ public class PackTarget<T extends Target> extends ArrayList<T> implements Target
 		}
 
 		Objects.requireNonNull(dartTarget);
-		Target ret = dartTarget.pick(dart - acc);
+        TT ret = dartTarget.pick(dart - acc);
 
 		afterOnPick();
 
@@ -82,26 +86,26 @@ public class PackTarget<T extends Target> extends ArrayList<T> implements Target
 		return ( rand.nextLong() & Long.MAX_VALUE ) % max;
 	}
 
-	public T pick() {
-		if (size() == 0)
-			throw new EmptyException();
+    @Override
+    public <TT extends Target> TT pick() {
+        if (size() == 0)
+            throw new EmptyException();
 
-		long surface = surfaceWithNext();
+        long surface = surfaceWithNext();
 
-		if (surface <= 0)
-			throw new NoSurfaceException();
+        if (surface <= 0)
+            throw new NoSurfaceException();
 
-		if (size() == 1) { // Para evitar el rand y sea más eficiente, sobre todo para el SecureRandom
-			T t = get(0);
-			beforeOnPick();
-			t.pick();
-			return t;
-		}
+        if (size() == 1) { // Para evitar el rand y sea más eficiente, especialmente para el SecureRandom
+            T t = get(0);
+            beforeOnPick();
+            return t.pick();
+        }
 
-		long dart = rand(surface);
+        long dart = rand(surface);
 
-		return (T) pick(dart);
-	}
+        return pick(dart);
+    }
 
 	public static class NoSurfaceException extends RuntimeException {
 		@SuppressWarnings("WeakerAccess")
