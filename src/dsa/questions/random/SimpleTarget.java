@@ -12,13 +12,11 @@ public class SimpleTarget implements Target {
     public void afterOnPick() {
     }
 
-    @SuppressWarnings("unchecked")
     @Override
     public SimpleTarget pick(long dart) {
         return pick();
     }
 
-    @SuppressWarnings("unchecked")
     @Override
     public SimpleTarget pick() {
         beforeOnPick();

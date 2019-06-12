@@ -7,44 +7,46 @@ import java.util.List;
 import java.util.Map;
 
 @SuppressWarnings("unused")
-public class PackQuestionTarget<Q extends Question> extends PackTarget<QuestionTarget<Q>> {
-    private Map<Q, QuestionTarget<Q>> questionTarget = new HashMap<>();
+public class PackQuestionTarget<PICK_TYPE extends QuestionTarget<? extends Question>> extends PackTarget<PICK_TYPE> {
+    private Map<Question, PICK_TYPE> questionTarget = new HashMap<>();
 
     public PackQuestionTarget() {
         super();
     }
 
-    public PackQuestionTarget(List<Q> qs) {
-        for (Q q : qs) {
+    public PackQuestionTarget(List<Question> qs) {
+        for (Question q : qs) {
             add(q);
         }
     }
 
     @Override
-    public boolean add(QuestionTarget<Q> t) {
-        questionTarget.put(t.getValue(), t);
+    public boolean add(Target t) {
+        if (t instanceof QuestionTarget) {
+            PICK_TYPE qt = (PICK_TYPE) t;
+            questionTarget.put(qt.getValue(), qt);
+        }
         return super.add(t);
     }
 
     @SuppressWarnings({"WeakerAccess", "unused"})
-    public boolean add(Q q) {
-        QuestionTarget<Q> t = new QuestionTarget<>(q);
+    public boolean add(Question q) {
+        QuestionTarget t = new QuestionTarget<>(q);
         return add(t);
     }
 
     @Override
     public boolean remove(Object t) {
-        @SuppressWarnings("unchecked")
-        QuestionTarget<Q> st = (QuestionTarget<Q>)t;
+        QuestionTarget st = (QuestionTarget) t;
         questionTarget.remove(st.getValue());
         return super.remove(t);
     }
 
-    public boolean remove(Q q) {
+    public boolean remove(Question q) {
         return remove(questionTarget.get(q));
     }
 
-    public QuestionTarget<Q> getTarget(Q q) {
+    public PICK_TYPE getTarget(Question q) {
         return questionTarget.get(q);
     }
 }

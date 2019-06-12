@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Random;
 
-public class PackTarget<T extends Target> extends ArrayList<T> implements Target {
+public class PackTarget<PICK_TYPE extends Target> extends ArrayList<Target> implements Target {
 	private static Random rand;
 	static {
 		setNormalRandom();
@@ -25,15 +25,15 @@ public class PackTarget<T extends Target> extends ArrayList<T> implements Target
     }
 
 	@Override
-    public <TT extends Target> TT pick(long dart) {
+    public PICK_TYPE pick(long dart) {
 		if (size() == 0)
 			throw new EmptyException();
 
 		beforeOnPick();
 
 		long acc = 0;
-        T dartTarget = null;
-        for (T t : this) {
+        Target dartTarget = null;
+        for (Target t : this) {
 			acc += Math.max(0, t.surface());
 			if (dart < acc) {
 				dartTarget = t;
@@ -43,7 +43,7 @@ public class PackTarget<T extends Target> extends ArrayList<T> implements Target
 		}
 
 		Objects.requireNonNull(dartTarget);
-        TT ret = dartTarget.pick(dart - acc);
+        PICK_TYPE ret = (PICK_TYPE) dartTarget.pick(dart - acc);
 
 		afterOnPick();
 
@@ -53,7 +53,7 @@ public class PackTarget<T extends Target> extends ArrayList<T> implements Target
 	@Override
 	public long surface() {
 		long size = 0;
-		for(T t : this) {
+        for (Target t : this) {
 			size += Math.max(t.surface(), 0);
 		}
 
@@ -74,7 +74,7 @@ public class PackTarget<T extends Target> extends ArrayList<T> implements Target
 
 	private long surfaceWithNext() {
 		long size = 0;
-		for(T t : this) {
+        for (Target t : this) {
 			t.next();
 			size += Math.max(t.surface(), 0);
 		}
@@ -87,7 +87,7 @@ public class PackTarget<T extends Target> extends ArrayList<T> implements Target
 	}
 
     @Override
-    public <TT extends Target> TT pick() {
+    public PICK_TYPE pick() {
         if (size() == 0)
             throw new EmptyException();
 
@@ -97,9 +97,9 @@ public class PackTarget<T extends Target> extends ArrayList<T> implements Target
             throw new NoSurfaceException();
 
         if (size() == 1) { // Para evitar el rand y sea más eficiente, especialmente para el SecureRandom
-            T t = get(0);
+            Target t = get(0);
             beforeOnPick();
-            return t.pick();
+            return (PICK_TYPE) t.pick();
         }
 
         long dart = rand(surface);

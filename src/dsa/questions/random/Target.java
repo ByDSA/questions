@@ -1,9 +1,9 @@
 package dsa.questions.random;
 
 public interface Target {
-	<T extends Target> T pick(long dart);
+	Target pick(long dart);
 
-	<T extends Target> T pick();
+	Target pick();
 	long surface();
 	void next();
 	void beforeOnPick();
