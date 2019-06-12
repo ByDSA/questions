@@ -21,8 +21,8 @@ public class QuestionTarget<Q extends Question> extends SimpleTargetBean<Q> {
 	}
 
 	@Override
-	public QuestionTarget<Q> pick(long dart) {
-		return (QuestionTarget<Q>) super.pick(dart);
+	public QuestionTarget<Q> pickDart(long dart) {
+		return (QuestionTarget<Q>) super.pickDart(dart);
 	}
 
 	@SuppressWarnings("unused")
@@ -30,10 +30,12 @@ public class QuestionTarget<Q extends Question> extends SimpleTargetBean<Q> {
 		times.add(ok);
 	}
 
+	@SuppressWarnings("unused")
 	public final void clearTimes() {
 		times.clear();
 	}
 
+	@SuppressWarnings("unused")
 	public final void setTimes(List<Boolean> l) {
 		times = l;
 	}

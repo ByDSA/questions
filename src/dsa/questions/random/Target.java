@@ -1,7 +1,7 @@
 package dsa.questions.random;
 
 public interface Target {
-	Target pick(long dart);
+	Target pickDart(long dart);
 	Target pick();
 	long getSurface();
 	void next();

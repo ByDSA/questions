@@ -25,7 +25,7 @@ public class PackTarget<PICK_TYPE extends Target> extends ArrayList<Target> impl
     }
 
 	@Override
-	public final PICK_TYPE pick(long dart) {
+	public final PICK_TYPE pickDart(long dart) {
 		if (size() == 0)
 			throw new EmptyException();
 
@@ -41,7 +41,7 @@ public class PackTarget<PICK_TYPE extends Target> extends ArrayList<Target> impl
 		}
 
 		Objects.requireNonNull(dartTarget);
-        PICK_TYPE ret = (PICK_TYPE) dartTarget.pick(dart - acc);
+		PICK_TYPE ret = (PICK_TYPE) dartTarget.pickDart(dart - acc);
 
 		return ret;
 	}
@@ -100,7 +100,7 @@ public class PackTarget<PICK_TYPE extends Target> extends ArrayList<Target> impl
 
         long dart = rand(surface);
 
-		PICK_TYPE t = pick(dart);
+		PICK_TYPE t = pickDart(dart);
 		afterOnPick();
 		return t;
     }

@@ -15,7 +15,7 @@ public class SimpleTarget implements Target {
     }
 
     @Override
-    public SimpleTarget pick(long dart) {
+    public SimpleTarget pickDart(long dart) {
         return pick();
     }
 
@@ -31,6 +31,7 @@ public class SimpleTarget implements Target {
         return surface;
     }
 
+    @SuppressWarnings("unused")
     public final void setSurface(long s) {
         surface = s;
     }

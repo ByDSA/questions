@@ -29,7 +29,7 @@ public class PackQuestionTarget<PICK_TYPE extends QuestionTarget<? extends Quest
         return super.add(t);
     }
 
-    @SuppressWarnings({"WeakerAccess", "unused"})
+    @SuppressWarnings({"WeakerAccess", "unused", "UnusedReturnValue"})
     public boolean add(Question q) {
         QuestionTarget t = new QuestionTarget<>(q);
         return add(t);
