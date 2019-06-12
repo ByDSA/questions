@@ -27,8 +27,8 @@ public class SimpleTargetBean<T> extends SimpleTarget implements Bean<T> {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public SimpleTargetBean<T> pick(long dart) {
-		return (SimpleTargetBean<T>) super.pick();
+    public SimpleTargetBean<T> pickDart(long dart) {
+        return (SimpleTargetBean<T>) super.pickDart(dart);
 	}
 
 	@SuppressWarnings("unchecked")
