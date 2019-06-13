@@ -40,7 +40,7 @@ jar {
     }
 	
 	doLast {
-		moveLib("${projectDir}/..");
-		clear();
+		//moveLib("${projectDir}/..");
+		//clear();
     }
 }
