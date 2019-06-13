@@ -4,13 +4,20 @@ plugins {
 
 sourceCompatibility = JavaVersion.toVersion(targetJavaVersion)
 
+allprojects {
+    repositories {
+        maven { url 'https://jitpack.io' }
+    }
+}
+
 repositories {
     mavenCentral()
     maven { url 'https://jitpack.io' }
 }
 
 dependencies {
-    //implementation 'com.github.ByDSA:questions:Tag'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    implementation 'com.github.ByDSA:random:1.0'
 }
 
 void clear() {
