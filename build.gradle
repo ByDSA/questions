@@ -1,0 +1,39 @@
+plugins {
+    id 'java-library'
+}
+
+sourceCompatibility = JavaVersion.toVersion(targetJavaVersion)
+
+repositories {
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+    //implementation 'com.github.ByDSA:questions:Tag'
+}
+
+void clear() {
+    println "Delete buildDir ${buildDir}"
+    delete buildDir
+}
+
+void moveLib(String outDir) {
+    def file = "${buildDir}/libs/${project.name}-${version}.jar"
+    println "Moving lib file ${file} to ${outDir}"
+
+    ant.move file: "${file}",
+            todir: "${outDir}"
+}
+
+jar {
+    manifest {
+        attributes('Implementation-Title': project.name,
+                   'Implementation-Version': project.version)
+    }
+	
+	doLast {
+		moveLib("${projectDir}/..");
+		clear();
+    }
+}
