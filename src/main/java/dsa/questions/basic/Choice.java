@@ -1,8 +1,10 @@
 package dsa.questions.basic;
 
+import dsa.questions.io.json.Idable;
+
 import java.util.Objects;
 
-public class Choice<ID, ANSWER> {
+public abstract class Choice<ID, ANSWER> implements Idable<ID> {
     private ID id;
     private ANSWER answer;
 
@@ -32,5 +34,20 @@ public class Choice<ID, ANSWER> {
     public final void setAnswer(ANSWER a) {
         Objects.requireNonNull(a);
         answer = a;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof Choice) {
+            Choice c = (Choice) o;
+            return getId().equals(c.getId()) && getAnswer().equals(c.getAnswer());
+        }
+
+        return false;
+    }
+
+    @Override
+    public String toString() {
+        return "id=" + id + " answer=" + answer;
     }
 }

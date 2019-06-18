@@ -1,7 +1,9 @@
 package dsa.questions.basic;
 
+import com.google.gson.reflect.TypeToken;
 import dsa.questions.core.Question;
 
+import java.lang.reflect.Type;
 import java.util.Objects;
 
 @SuppressWarnings("unused")
@@ -43,5 +45,15 @@ public final class QuestionString extends Question<SolutionRegex, String> {
 	@Override
 	public String toString() {
 		return questionString;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (o instanceof QuestionString) {
+			QuestionString qs = (QuestionString) o;
+			return getQuestionString().equals(qs.getQuestionString()) && getSolution().equals(qs.getSolution());
+		}
+
+		return false;
 	}
 }

@@ -11,7 +11,7 @@ public class QuestionTests {
             return a.equals("success");
         }
     };
-
+/*
     @Test
     public void defaultConstructor() {
         Question q = new Question();
@@ -38,5 +38,5 @@ public class QuestionTests {
         q.setSolution(SOLUTION_EXAMPLE);
         assertTrue(q.match("success"));
         assertFalse(q.match("failure"));
-    }
+    }*/
 }

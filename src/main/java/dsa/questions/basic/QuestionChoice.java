@@ -1,30 +1,28 @@
 package dsa.questions.basic;
 
+import com.google.gson.reflect.TypeToken;
 import dsa.questions.core.Question;
 
+import java.lang.reflect.Type;
 import java.util.*;
 
-public class QuestionChoice<ID, ANSWER> extends Question<SolutionBean<ID>, ID> {
-    private Map<ID, Choice<ID, ANSWER>> choices = new HashMap<>();
-    private List<Choice<ID, ANSWER>> choicesList = new ArrayList<>();
+public abstract class QuestionChoice<ID, ANSWER, C extends Choice<ID, ANSWER>> extends Question<SolutionBean<ID>, ID> {
+    private Map<ID, C> choices = new HashMap<>();
+    private List<C> choicesList = new ArrayList<>();
 
     @SuppressWarnings("WeakerAccess")
-    public QuestionChoice() {
-    }
-
-    @SuppressWarnings("WeakerAccess")
-    public QuestionChoice(Choice<ID, ANSWER>[] choices, ID s) {
+    public QuestionChoice(C[] choices, ID s) {
         Objects.requireNonNull(choices);
         Objects.requireNonNull(s);
 
-        for (Choice<ID, ANSWER> c : choices)
+        for (C c : choices)
             addChoice(c);
 
         setSolution(s);
     }
 
     @SuppressWarnings("WeakerAccess")
-    public final void addChoice(Choice<ID, ANSWER> c) {
+    public final void addChoice(C c) {
         Objects.requireNonNull(c);
 
         choices.put(c.getId(), c);
@@ -32,10 +30,7 @@ public class QuestionChoice<ID, ANSWER> extends Question<SolutionBean<ID>, ID> {
     }
 
     @SuppressWarnings("unused")
-    public final void addChoice(ID id, ANSWER a) {
-        Choice<ID, ANSWER> c = new Choice<>(id, a);
-        addChoice(c);
-    }
+    public abstract void addChoice(ID id, ANSWER a);
 
     @SuppressWarnings("unused")
     public final Choice<ID, ANSWER> getChoice(ID id) {
@@ -44,13 +39,13 @@ public class QuestionChoice<ID, ANSWER> extends Question<SolutionBean<ID>, ID> {
     }
 
     @SuppressWarnings("WeakerAccess")
-    public final List<Choice<ID, ANSWER>> getChoices() {
+    public final List<C> getChoices() {
         return choicesList;
     }
 
     @SuppressWarnings("unused")
-    public final List<Choice<ID, ANSWER>> getShuffledChoices() {
-        List<Choice<ID, ANSWER>> l = getChoices();
+    public final List<C> getShuffledChoices() {
+        List<C> l = getChoices();
         Collections.shuffle(l);
 
         return l;
@@ -62,5 +57,11 @@ public class QuestionChoice<ID, ANSWER> extends Question<SolutionBean<ID>, ID> {
         Objects.requireNonNull(choices.get(s), "Opción '" + s + "' no añadida");
 
         setSolution( new SolutionBean<>(s) );
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        QuestionChoice qc = (QuestionChoice) o;
+        return getChoices().equals(qc.getChoices()) && super.equals(o);
     }
 }

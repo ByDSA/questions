@@ -33,4 +33,14 @@ public class SolutionBean<T> implements Solution<T>, Bean<T> {
 		Objects.requireNonNull(v);
 		value = v;
 	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (o instanceof SolutionBean) {
+			SolutionBean sb = (SolutionBean) o;
+			return getValue().equals(sb.getValue());
+		}
+
+		return false;
+	}
 }

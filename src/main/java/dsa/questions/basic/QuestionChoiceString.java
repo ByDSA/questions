@@ -1,21 +1,19 @@
 package dsa.questions.basic;
 
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
 import java.util.Objects;
 
 @SuppressWarnings("unused")
-public class QuestionChoiceString<ID> extends QuestionChoice<ID, String> {
+public abstract class QuestionChoiceString<ID, C extends Choice<ID, String>> extends QuestionChoice<ID, String, C> {
     private String questionString;
 
     @SuppressWarnings("unused")
-    public QuestionChoiceString() {
-        super();
-    }
-
-    @SuppressWarnings("unused")
-    public QuestionChoiceString(String q, Choice<ID, String>[] cs, ID sol) {
+    public QuestionChoiceString(String q, C[] cs, ID sol) {
         super(cs, sol);
 
-        setQuestionString(questionString);
+        setQuestionString(q);
     }
 
     @SuppressWarnings("unused")
@@ -32,5 +30,11 @@ public class QuestionChoiceString<ID> extends QuestionChoice<ID, String> {
     @Override
     public String toString() {
         return questionString;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        QuestionChoiceString qs = (QuestionChoiceString) o;
+        return getQuestionString().equals(qs.getQuestionString()) && super.equals(o);
     }
 }
