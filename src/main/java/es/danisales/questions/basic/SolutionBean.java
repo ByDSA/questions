@@ -1,6 +1,6 @@
-package dsa.questions.basic;
+package es.danisales.questions.basic;
 
-import dsa.questions.core.Solution;
+import es.danisales.questions.core.Solution;
 import dsa.utils.Bean;
 
 import java.util.Objects;

@@ -1,7 +1,6 @@
 package io;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
-import dsa.questions.io.json.JsonManager;
+import es.danisales.questions.io.json.JsonManager;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;

@@ -1,7 +1,7 @@
-package dsa.questions.io.json;
+package es.danisales.questions.io.json;
 
 import com.google.gson.JsonSerializer;
-import dsa.questions.core.Question;
+import es.danisales.questions.core.Question;
 
 import java.util.HashMap;
 import java.util.Map;

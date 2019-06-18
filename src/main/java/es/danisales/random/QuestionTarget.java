@@ -1,6 +1,6 @@
-package dsa.random;
+package es.danisales.random;
 
-import dsa.questions.core.Question;
+import es.danisales.questions.core.Question;
 import dsa.random.target.SimpleTargetBean;
 
 import java.util.ArrayList;

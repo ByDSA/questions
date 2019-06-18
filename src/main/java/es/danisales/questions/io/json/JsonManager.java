@@ -1,13 +1,14 @@
-package dsa.questions.io.json;
+package es.danisales.questions.io.json;
 
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
 import com.google.gson.*;
 import com.google.gson.stream.JsonReader;
-import dsa.questions.basic.*;
-import dsa.questions.core.Question;
-import dsa.random.PackQuestionTarget;
-import dsa.random.QuestionTarget;
+import es.danisales.questions.basic.*;
+import es.danisales.questions.core.Question;
+import es.danisales.random.PackQuestionTarget;
+import es.danisales.random.QuestionTarget;
+import es.danisales.questions.basic.ChoiceString;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;

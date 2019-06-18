@@ -1,6 +1,6 @@
-package dsa.questions.utils;
+package es.danisales.questions.utils;
 
-import dsa.random.QuestionTarget;
+import es.danisales.random.QuestionTarget;
 
 import java.util.List;
 

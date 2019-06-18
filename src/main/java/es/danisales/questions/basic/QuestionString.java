@@ -1,9 +1,7 @@
-package dsa.questions.basic;
+package es.danisales.questions.basic;
 
-import com.google.gson.reflect.TypeToken;
-import dsa.questions.core.Question;
+import es.danisales.questions.core.Question;
 
-import java.lang.reflect.Type;
 import java.util.Objects;
 
 @SuppressWarnings("unused")

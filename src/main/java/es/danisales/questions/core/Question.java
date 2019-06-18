@@ -1,6 +1,6 @@
-package dsa.questions.core;
+package es.danisales.questions.core;
 
-import dsa.questions.io.json.Idable;
+import es.danisales.questions.io.json.Idable;
 
 import java.util.Objects;
 

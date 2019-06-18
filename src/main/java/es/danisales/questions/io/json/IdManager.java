@@ -1,13 +1,10 @@
-package dsa.questions.io.json;
+package es.danisales.questions.io.json;
 
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
-import dsa.questions.core.Question;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class IdManager<ID, T> {
     BiMap<ID, T> idQuestion = HashBiMap.create();

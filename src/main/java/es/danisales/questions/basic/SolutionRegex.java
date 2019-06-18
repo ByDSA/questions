@@ -1,4 +1,4 @@
-package dsa.questions.basic;
+package es.danisales.questions.basic;
 
 public final class SolutionRegex extends SolutionBean<String> {
     @SuppressWarnings("WeakerAccess")

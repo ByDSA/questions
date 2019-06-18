@@ -1,4 +1,4 @@
-package dsa.questions.utils;
+package es.danisales.questions.utils;
 
 public class StringSimilarity {
 

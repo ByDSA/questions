@@ -1,8 +1,4 @@
-import dsa.questions.core.Question;
-import dsa.questions.core.Solution;
-import org.junit.Test;
-
-import static org.junit.Assert.*;
+import es.danisales.questions.core.Solution;
 
 public class QuestionTests {
     final static Solution SOLUTION_EXAMPLE = new Solution<String>() {

@@ -1,4 +1,4 @@
-package dsa.questions.basic;
+package es.danisales.questions.basic;
 
 @SuppressWarnings("unused")
 public final class ChoiceString extends Choice<String, String> {

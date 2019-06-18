@@ -1,20 +1,19 @@
 package io;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonElement;
 import com.google.gson.reflect.TypeToken;
-import dsa.questions.basic.*;
-import dsa.questions.core.Question;
-import dsa.questions.io.json.JsonManager;
+import es.danisales.questions.basic.ChoiceString;
+import es.danisales.questions.basic.QuestionChoiceStringString;
+import es.danisales.questions.basic.QuestionString;
+import es.danisales.questions.core.Question;
+import es.danisales.questions.io.json.JsonManager;
 import org.junit.AfterClass;
-import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import static junit.framework.TestCase.assertTrue;

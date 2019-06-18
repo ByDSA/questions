@@ -1,6 +1,4 @@
-package dsa.questions.basic;
-
-import java.util.Objects;
+package es.danisales.questions.basic;
 
 @SuppressWarnings("unused")
 public class QuestionChoiceStringString extends QuestionChoiceString<String, ChoiceString> {
